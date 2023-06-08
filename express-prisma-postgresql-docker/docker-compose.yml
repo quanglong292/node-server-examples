@@ -1,0 +1,21 @@
+version: "3"
+services:
+  postgresDB:
+    image: postgres:latest
+    container_name: postgres-express-example
+    ports:
+      - 8080:5556
+    volumes:
+      - postgresDB:/data/postgres
+    env_file:
+      - ./.env
+  redisDB:
+    image: redis:latest
+    container_name: redis-express-example
+    ports:
+      - 8080:5557
+    volumes:
+      - redisDB:/data
+volumes:
+  postgresDB:
+  redisDB:
